@@ -1,0 +1,40 @@
+.mainCover {
+  height: auto;
+  max-width: 1200px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(/assets/world-war-z-4k-movie-poster-hpqzcv92vnt8h6pb.jpeg);
+}
+
+.carousel {
+  background-color: hsla(0, 0%, 0%, 0.721);
+}
+
+.bgContent {
+  width: 100%;
+  padding-top: 240px;
+}
+
+.descripMovie h3 {
+  font-size: 12px;
+}
+
+@media (max-width: 1300px) {
+  .mainCover {
+    margin-top: 105px !important ;
+  }
+}
+
+@media (max-width: 576px) {
+  .bgContent {
+    padding-top: 180px;
+  }
+
+  .movieCard img {
+    border-radius: 12px !important;
+  }
+  
+  .descripMovie h3 {
+    font-size: 10px;
+  }
+}

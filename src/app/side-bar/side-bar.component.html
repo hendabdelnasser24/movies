@@ -1,0 +1,16 @@
+<div class="sideBar position-fixed z-3" [class]="openedBar ? 'open': 'closed' ">
+  <a class=" logo d-flex flex-column align-items-center mt-5" routerLink="home"><img src="/assets/logo3.png" alt="">
+    <h2 class="logoTitle mt-3 h6 fw-bolder">MOVIE CHANNEL</h2>
+  </a>
+
+  <hr class="my-5 mx-3">
+  <div class="Categories">
+    <ul>
+      <li class="home"><a routerLink="home" routerLinkActive="activeLink"> <i class="fa-solid fa-film"></i> <span>Home</span></a></li>
+      <li ><a routerLink="movies" routerLinkActive="activeLink"> <i class="fa-solid fa-film"></i> <span>Movie</span></a></li>
+      <li><a routerLink="tv-shows" routerLinkActive="activeLink"> <i class="fa-solid fa-tv"></i> <span>Tv Shows</span></a></li>
+      <li><a routerLink="upcoming" routerLinkActive="activeLink"> <i class="fa-solid fa-tv"></i> <span>Upcoming</span></a></li>
+
+    </ul>
+  </div>
+</div>

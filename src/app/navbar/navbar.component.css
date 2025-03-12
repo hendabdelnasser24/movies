@@ -1,0 +1,185 @@
+nav {
+  background-color: #2f2e36;
+  border-radius: 28px;
+  box-shadow: 2px 2px 20px 3px #0000006a;
+}
+
+nav button {
+  display: none;
+}
+
+.logoTitle {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav .loginLogo {
+  height: 30px;
+  margin-left: 48px;
+}
+
+.searchIcon i {
+  display: none;
+}
+
+.searching input {
+  width: 470px;
+  font-weight: 500;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 18px;
+  color: white;
+  background-color: #17131d;
+}
+
+.searching input::placeholder {
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.searchArea {
+  background-color: #2f2e36;
+  border-radius: 16px;
+  border: 0.1px solid rgba(255, 255, 255, 0.2);
+  left: 0px;
+}
+
+.item img {
+  border-radius: 12px;
+}
+
+.item h6 {
+  font-size: 12px;
+}
+
+nav .logoLi {
+  display: none;
+}
+
+nav li .logoImg {
+  height: 30px;
+}
+
+.activeLink {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+@media (max-width: 1300px) {
+  nav {
+    position: fixed !important;
+    z-index: 6;
+    top: 20px;
+    width: calc(100% - 24px);
+  }
+
+  nav .firstList {
+    padding-left: 24px !important;
+  }
+
+  nav .secondList {
+    padding-right: 24px !important  ;
+  }
+
+  nav button {
+    display: flex;
+    background: none;
+    border: none;
+  }
+
+  nav button i {
+    color: white;
+    font-size: 24px;
+  }
+
+  nav .logoLi {
+    display: flex;
+  }
+
+  .home,
+  .contact,
+  .about,
+  .instagramI,
+  .facebookI,
+  .twitterI,
+  .youtubeI {
+    display: none;
+  }
+
+  .home,
+  .contact,
+  .about,
+  .instagramI,
+  .facebookI,
+  .twitterI,
+  .youtubeI {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+
+  .searchIcon i {
+    display: flex;
+  }
+
+  .closed {
+    input {
+      display: none;
+    }
+    .searchArea {
+      display: none;
+    }
+  }
+
+  .opend {
+    position: absolute;
+    background-color: hsla(264, 21%, 9%, 0.8);
+    width: 100%;
+    height: calc(100vh - 12px);
+    top: 0;
+    z-index: -1;
+
+    input {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      width: 90%;
+      top: 78px;
+    }
+  }
+
+  .searchArea {
+    top: 106px;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .loginLogo {
+    margin-left: 24px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .loginLogo {
+    margin-left: 24px !important;
+  }
+
+  .logoTitle {
+    font-size: 12px;
+  }
+
+  .secondList {
+    padding-right: 4px !important ;
+    font-size: 14px !important;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 380px) {
+  .logoTitle {
+    font-size: 10px;
+    margin-left: 8px !important;
+  }
+}

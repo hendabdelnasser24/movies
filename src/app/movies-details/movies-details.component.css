@@ -1,0 +1,136 @@
+.backgroundContainer {
+  position: relative;
+  min-height: 540px;
+  max-height: auto;
+  background-size: cover;
+  background-position: center;
+  margin: 30px;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  background-color: hsla(0, 2%, 12%, 0.874);
+}
+
+.backgroundContainer .poster img {
+  width: 240px;
+  border-radius: 8px;
+  border: 0.8px solid rgb(73, 73, 73);
+  margin-right: 68px;
+}
+
+.backgroundContainer .info {
+  max-width: 600px;
+}
+
+.backgroundContainer .info .rate {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.backgroundContainer .info .rate i {
+  color: goldenrod;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.backgroundContainer .info .rate span {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.backgroundContainer .info p {
+  font-size: 12px;
+}
+
+.genresName {
+  margin-top: 42px;
+}
+
+.genresName span {
+  background-color: #ac1b1b;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.backgroundContainer .info .imdb img {
+  width: auto;
+  height: 24px;
+  border-radius: 4px;
+  margin-right: 14px;
+}
+
+.backgroundContainer .imdb span {
+  font-size: 14px;
+}
+
+@media (max-width: 1300px) {
+  .backgroundContainer {
+    margin-top: 112px;
+  }
+
+  .content {
+    align-items: center;
+    margin: 0px 14px;
+  }
+
+  .backgroundContainer .poster img {
+    width: 220px;
+    margin-right: 30px;
+  }
+
+  .backgroundContainer .info {
+    max-width: 400px;
+  }
+
+  .backgroundContainer h2 {
+    font-size: 20px;
+    margin: 0 0 12px !important;
+  }
+
+  .genresName {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .backgroundContainer {
+    height: auto;
+    padding: 24px 18px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .backgroundContainer .poster img {
+    margin: auto !important;
+  }
+
+  .backgroundContainer .info {
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  .firstLine {
+    flex-direction: column;
+  }
+
+  .backgroundContainer h2 {
+    text-align: center;
+  }
+
+  .backgroundContainer .rate {
+    margin: 10px 0px !important;
+  }
+
+  .backgroundContainer p {
+    text-align: center;
+  }
+
+  .genresName {
+    justify-content: center;
+  }
+}

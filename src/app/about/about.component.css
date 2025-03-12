@@ -1,0 +1,17 @@
+.contactContent {
+  background-image: url(/assets/background.png);
+  height: calc(100vh - 335px);
+  background-size: cover;
+  background-position: center;
+  margin: 40px 30px 0px;
+}
+
+p {
+  max-width: 540px;
+}
+
+@media (max-width: 1300px) {
+  .contactContent {
+    margin-top: 120px;
+  }
+}

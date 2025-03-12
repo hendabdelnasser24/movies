@@ -1,0 +1,87 @@
+<app-header-home [headerTrendingMovies]="trendingMovies"></app-header-home>
+<div class="genres mb-5 mt-5">
+  <ul class=" d-flex  justify-content-center my-4 ">
+    <li><button (click)="GetTrendingMovie('Trending Movies')"> <i class="fa-solid fa-fire-flame-curved"></i>
+        <span>Trending </span> </button></li>
+    <li><button (click)="getMovieByGenre('16' , 'Animation Movies')"><i
+          class="fa-solid fa-robot"></i><span>Animation</span></button></li>
+    <li><button (click)="getMovieByGenre('28' , 'Action Movies')"><i class="fa-solid fa-gun"></i>
+        <span>Action</span></button></li>
+    <li><button (click)="getMovieByGenre('27' , 'Horror Movies')"><i
+          class="fa-solid fa-ghost"></i><span>Horror</span></button></li>
+    <li><button (click)="getMovieByGenre('18' , 'Drama Movies')"><i
+          class="fa-regular fa-chess-knight"></i><span>Drama</span></button></li>
+    <li class="me-0"><button (click)="getMovieByGenre('10749' , 'Romance Movies')"><i
+          class="fa-solid fa-heart"></i><span>Romance</span></button></li>
+  </ul>
+</div>
+<div class="mx-lg-2 mx-md-3 mx-sm-4 mx-auto">
+  <div class="mainTitle ps-4 mb-5">
+    <h2 class="h4">{{mainTitle}}</h2>
+  </div>
+  <div class="row mt-4 mb-5">
+    <div *ngFor="let movie of genreMovies" class="col-md-3 col-6 col-sm-3 col-xl-2" data-aos="fade-down"
+      data-aos-duration="1500" data-aos-once="false" data-aos-delay="30">
+      <div class="movieCard">
+        <a [routerLink]="['/movies-details'  , (movie.media_type || 'movie')  ,movie.id ]">
+          <img [src]="
+             movie.poster_path ?  ( imgprefix + movie.poster_path) : '/assets/not-found.png'
+            " class="w-100" alt="" />
+          <div class="descripMovie ">
+            <h3>{{ movie.title }}</h3>
+            <div class="voteLine">
+              <i class=" fa-solid fa-star"></i>
+              <span>{{ movie.vote_average | number : "1.0-1" }}</span>
+              <span class="pipe mx-2"> | </span>
+              <span> {{movie.release_date | date : 'yyyy'}} </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="trendingTvSection">
+    <div class="mainTitle ps-4 mb-5">
+      <h2 class="h4">Trending Tv</h2>
+    </div>
+    <div class="row mt-4 mb-5">
+      <div *ngFor="let tv of trendingTv" class="col-md-3 col-6 col-sm-3 col-xl-2" data-aos="fade-down"
+        data-aos-duration="1500" data-aos-once="false" data-aos-delay="30">
+        <div class="movieCard">
+          <a [routerLink]="['/movies-details'  ,tv.media_type ,tv.id ]">
+            <img [src]="tv.poster_path ?  ( imgprefix + tv.poster_path) : '/assets/not-found.png'" class="w-100"
+              alt="" />
+            <div class="descripMovie mt-2 px-3 py-3 ">
+              <h3 class="h6 mb-2">{{ tv.name }}</h3>
+              <div class="voteLine ">
+                <i class=" fa-solid fa-star"></i>
+                <span>{{ tv.vote_average | number : "1.0-1" }}</span>
+                <span class="pipe mx-2"> | </span>
+                <span> {{tv.first_air_date | date : 'yyyy'}} </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popularActors">
+    <div class="mainTitle ps-4 mb-5">
+      <h2 class="h4">Popular Actors</h2>
+    </div>
+    <div class="row mt-4 mb-5">
+      <div *ngFor="let person of trendingPerson" class="col-md-3 col-6 col-sm-3 col-xl-2" data-aos="fade-down"
+        data-aos-duration="1500" data-aos-once="false" data-aos-delay="30">
+        <div class="movieCard">
+          <a [routerLink]="['/movies-details'  ,person.media_type ,person.id ]">
+            <img [src]="person.profile_path ?  ( imgprefix + person.profile_path) : '/assets/not-found.png'"
+              class="w-100" alt="" />
+            <div class="descripMovie mt-2 px-3 py-3 ">
+              <h3 class="h6 mb-2">{{ person.name }}</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

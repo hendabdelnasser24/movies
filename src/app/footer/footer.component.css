@@ -1,0 +1,19 @@
+.socials li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 25px;
+  background-color: white;
+  margin: 0 16px;
+}
+
+.socials i {
+  color: black;
+  font-size: 16px;
+}
+
+footer p {
+  font-size: 12px;
+}

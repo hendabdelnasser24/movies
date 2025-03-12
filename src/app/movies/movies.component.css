@@ -1,0 +1,18 @@
+form select {
+  margin-top: 50px;
+  margin-left: 20px;
+  padding: 12px 0px 12px 18px;
+  width: 170px;
+  font-weight: 500;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 16px;
+  color: white;
+  background-color: #17131d;
+}
+
+@media (max-width: 1300px) {
+  form select {
+    margin-top: 120px;
+    margin-left: 10px;
+  }
+}

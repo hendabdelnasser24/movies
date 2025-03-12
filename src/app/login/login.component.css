@@ -1,0 +1,46 @@
+.content {
+  margin-top: 100px !important ;
+}
+
+.loginButton {
+  background-color: #ac1b1b;
+  color: white;
+  font-weight: 500;
+  border: 1px solid #261515;
+}
+
+@media (max-width: 1300px) {
+  .content {
+    margin-top: 180px !important ;
+  }
+  .loginArea {
+    width: 75% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .content {
+    margin-top: 150px !important ;
+  }
+  .textBox h2 {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .textBox h5 {
+    font-size: 14px;
+    margin-top: 16px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .content {
+    margin-top: 130px !important ;
+  }
+  .textBox h2 {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .textBox h5 {
+    font-size: 12px;
+  }
+}

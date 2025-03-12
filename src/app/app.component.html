@@ -1,0 +1,26 @@
+<div [class]="isLogin? '' : 'backgroundActive' ">
+  <div class="d-flex w-100">
+    <div class="">
+      @if(isLogin){
+      <app-side-bar [openedBar]="isOpenSideBar"></app-side-bar>
+      }
+    </div>
+    <div [ngStyle]="{'margin-left': isLogin ? '220px' : '0px'}" class="main-content w-100 ">
+      <div class="container mainContainer mt-4 ">
+        <div class="">
+          <app-navbar (sideBarState)="sideBarValue($event)"></app-navbar>
+        </div>
+        <div class="routerArea">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      @if(isLogin){
+      <div class="footerBackground">
+        <div class="container">
+          <app-footer></app-footer>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

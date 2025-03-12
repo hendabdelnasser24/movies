@@ -1,0 +1,90 @@
+.mainCover img {
+  margin-top: 30px;
+  height: 500px;
+  width: auto;
+  border-radius: 12px;
+}
+
+.genres li {
+  margin-right: 6px;
+}
+
+.genres button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 65px;
+  color: #ffffff9d;
+  border-radius: 24px;
+  border-width: 0.2px;
+  border-color: rgba(255, 255, 255, 0.086);
+  background-color: #ffffff14;
+  box-shadow: 2px 3px 14px 3px #0000001f;
+}
+
+.genres button i {
+  margin-right: 9px;
+  font-size: 22px;
+}
+
+.genres span {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media (max-width: 1300px) {
+  .mainCover img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .genres ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .genres li {
+    margin: 0px 12px 14px 0;
+  }
+
+  .genres button {
+    width: auto;
+    height: auto;
+    padding: 10px 14px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .genres button {
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+
+  .genres button i {
+    margin-right: 7px;
+    font-size: 18px;
+  }
+
+  .genres span {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 380px) {
+  .genres li {
+    margin: 0px 8px 12px 0;
+  }
+
+  .genres button i {
+    font-size: 16px;
+  }
+
+  .genres span {
+    font-size: 14px;
+    font-weight: 300;
+  }
+}

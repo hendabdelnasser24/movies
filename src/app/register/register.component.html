@@ -1,0 +1,47 @@
+<div class="content">
+  <div class=" textBox text-center ">
+    <h2 class="mt-5">welcome to the world of endless entertainment</h2>
+    <h5 class="mt-4">Register to Discover, Stream and Enjoy</h5>
+  </div>
+  <div class="registerArea w-75 mx-auto py-5">
+    <h2 class="register text-center h3">Register Now</h2>
+    <div *ngIf="displayErrorMessage" class="alert alert-danger mt-3"> {{displayErrorMessage}} </div>
+    <form [formGroup]="registerform" (ngSubmit)="submitRegisterForm()">
+
+      <div class="email mb-3">
+        <label for="email">Email</label>
+        <input formControlName="email" type="email" class="form-control" name="" id="email" />
+        <div *ngIf="
+          registerform.get('email')?.errors != null &&
+          registerform.get('email')?.touched
+        " class="alert mt-2 alert-danger">
+          <p *ngIf="registerform.get('email')?.errors?.['required']" class="m-0">
+            email is required
+          </p>
+          <p *ngIf="registerform.get('email')?.errors?.['email']" class="m-0">
+            email invalid
+          </p>
+        </div>
+      </div>
+
+      <div class="password">
+        <label for="password">Password</label>
+        <input formControlName="password" type="text" class="form-control" name="" id="password" />
+        <div *ngIf="
+          registerform.get('password')?.errors != null &&
+          registerform.get('password')?.touched
+        " class="alert mt-2 alert-danger">
+          <p *ngIf="registerform.get('password')?.errors?.['required']" class="m-0">
+            password is required
+          </p>
+          <p *ngIf="f['password']?.errors?.['pattern']" class="m-0">
+            password invalid
+          </p>
+        </div>
+      </div>
+      <button [disabled]="registerform.invalid" type="submit" class="registerButton  btn btn-info mt-4">
+        Register
+      </button>
+    </form>
+  </div>
+</div>

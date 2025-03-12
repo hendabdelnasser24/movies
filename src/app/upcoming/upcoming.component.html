@@ -1,0 +1,46 @@
+<div class="mx-lg-2 mx-md-3 mx-sm-4 mx-auto">
+  <div>
+    <h2 class="mt-5  ps-4 h4">Coming Soon</h2>
+
+    <div class="row mt-5 mb-5">
+      <div *ngFor="let movie of upcomingMovies" class="col-md-3 col-6 col-sm-6 col-xl-2"
+      data-aos="fade-down" data-aos-duration="1500" data-aos-once="false" data-aos-delay="100">
+        <div class="movieCard">
+          <a [routerLink]="['/movies-details'  , (movie.media_type || 'movie')  ,movie.id ]">
+            <img [src]="
+             movie.poster_path ?  ( imgprefix + movie.poster_path) : '/assets/not-found.png'
+             " class="w-100" alt="" />
+            <div class="descripMovie ">
+              <h3>{{ movie.title }}</h3>
+              <div class="voteLine">
+                <i class=" fa-solid fa-star"></i>
+                <span>{{ movie.vote_average | number : "1.0-1" }}</span>
+                <span class="pipe mx-2"> | </span>
+                <span> {{movie.release_date | date : 'yyyy'}} </span>
+              </div>
+            </div>
+
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="..." class="mb-5 ">
+    <ul class="pagination d-flex justify-content-center">
+      <li class="page-item ">
+        <button class="page-link text-black me-1 rounded-2" (click)="previousPage()"
+          [disabled]="currentPage == 0">Previous</button>
+      </li>
+      @for (page of totalPages; track $index) {
+      <li aria-current="page" class="px-1">
+        <a class="page-link text-black rounded-2" [class.activePage]="currentPage == $index"
+          (click)="getUpcomingMovies(page)" (click)="activeButton($index)">{{page}}</a>
+      </li>
+      }
+      <li class="page-item">
+        <button class="page-link text-black ms-1 rounded-2 " (click)="nextPage()"
+          [disabled]="currentPage == (totalPages.length -1)">Next</button>
+      </li>
+    </ul>
+  </nav>
+</div>

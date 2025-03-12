@@ -1,0 +1,23 @@
+<div class=" mainCover rounded-4 mt-4 m-auto ">
+  <div class="carousel rounded-4">
+    <div class="bgContent px-4">
+      <h5 class=" ms-4 mb-3">Treding now</h5>
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let movie of headerTrendingMovies">
+          <ng-template carouselSlide >
+            <div class="movieCard me-3 ">
+              <a [routerLink]="['/movies-details'  , (movie.media_type || 'movie')  ,movie.id ]">
+                <img [src]="
+                  imgprefix + movie.poster_path
+                " class="w-100 h-100 rounded-4 " alt="" />
+                <div class="descripMovie pb-0 pt-1 ">
+                  <h3>{{ movie.title }}</h3>
+                </div>
+              </a>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+.sideBar {
+  width: 220px;
+  height: 100vh;
+  background-color: #17131d;
+  border-right: 0.4px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 6px 0px 100px 2px #0707070d;
+}
+
+.sideBar button {
+  display: none;
+}
+
+.sideBar a img {
+  height: 70px;
+}
+
+hr {
+  color: hsla(0, 0%, 100%, 0.4);
+}
+
+.Categories li {
+  margin: 12px;
+  border-radius: 26px;
+}
+
+.Categories li:hover {
+  background-color: #ac1b1b;
+}
+
+.Categories li i {
+  font-size: 20px;
+  margin-right: 14px;
+}
+
+.Categories li a {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 16px 20px 16px 10px;
+  margin: 12px;
+  border-radius: 26px;
+}
+
+.home {
+  display: none;
+}
+
+.activeLink {
+  background-color: #ac1b1b;
+  margin: 0px !important;
+  padding-left: 42px !important;
+}
+
+@media (max-width: 1300px) {
+  .logo {
+    display: none !important;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .home {
+    display: block;
+  }
+
+  .closed {
+    width: 0px;
+    background: none;
+    border: none;
+
+    button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      margin-top: 35px;
+      background: none;
+      border: none;
+    }
+
+    .Categories li {
+      display: none;
+    }
+
+    button i {
+      text-align: center;
+      color: white;
+      font-size: 28px;
+    }
+
+    a {
+      display: none !important;
+    }
+  }
+
+  .open {
+    margin-top: 82px;
+    width: 220px;
+    height: 100vh;
+    background-color: #17131d;
+    border-right: 0.4px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 6px 0px 100px 2px #0707070d;
+
+    button {
+      display: none;
+    }
+
+    .sideBar a img {
+      height: 70px;
+    }
+
+    hr {
+      color: hsla(0, 0%, 100%, 0.4);
+    }
+
+    .Categories ul {
+      margin-top: 40px;
+    }
+
+    .Categories li:hover {
+      background-color: #ac1b1b;
+    }
+
+    .Categories li i {
+      font-size: 20px;
+      margin-right: 14px;
+    }
+
+    .Categories li a {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}
