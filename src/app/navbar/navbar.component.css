@@ -86,11 +86,12 @@ nav li .logoImg {
     display: flex;
     background: none;
     border: none;
+    padding-inline: 0px;
   }
 
   nav button i {
     color: white;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   nav .logoLi {
@@ -172,7 +173,7 @@ nav li .logoImg {
 
   .secondList {
     padding-right: 4px !important ;
-    font-size: 14px !important;
+    font-size: 12px !important;
     font-weight: 500;
   }
 }
