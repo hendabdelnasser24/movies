@@ -25,7 +25,7 @@
       <div class="movieCard">
         <a [routerLink]="['/movies-details'  , (movie.media_type || 'movie')  ,movie.id ]">
           <img [src]="
-             movie.poster_path ?  ( imgprefix + movie.poster_path) : '/assets/not-found.png'
+             movie.poster_path ?  ( imgprefix + movie.poster_path) : 'assets/not-found.png'
             " class="w-100" alt="" />
           <div class="descripMovie ">
             <h3>{{ movie.title }}</h3>
@@ -49,7 +49,7 @@
         data-aos-duration="1500" data-aos-once="false" data-aos-delay="30">
         <div class="movieCard">
           <a [routerLink]="['/movies-details'  ,tv.media_type ,tv.id ]">
-            <img [src]="tv.poster_path ?  ( imgprefix + tv.poster_path) : '/assets/not-found.png'" class="w-100"
+            <img [src]="tv.poster_path ?  ( imgprefix + tv.poster_path) : 'assets/not-found.png'" class="w-100"
               alt="" />
             <div class="descripMovie mt-2 px-3 py-3 ">
               <h3 class="h6 mb-2">{{ tv.name }}</h3>
@@ -74,7 +74,7 @@
         data-aos-duration="1500" data-aos-once="false" data-aos-delay="30">
         <div class="movieCard">
           <a [routerLink]="['/movies-details'  ,person.media_type ,person.id ]">
-            <img [src]="person.profile_path ?  ( imgprefix + person.profile_path) : '/assets/not-found.png'"
+            <img [src]="person.profile_path ?  ( imgprefix + person.profile_path) : 'assets/not-found.png'"
               class="w-100" alt="" />
             <div class="descripMovie mt-2 px-3 py-3 ">
               <h3 class="h6 mb-2">{{ person.name }}</h3>

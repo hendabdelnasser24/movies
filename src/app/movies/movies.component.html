@@ -11,7 +11,7 @@
     <div class="movieCard">
       <a [routerLink]="['/movies-details'  , (movie.media_type || 'movie')  ,movie.id ]">
         <img [src]="
-             movie.poster_path ?  ( imgprefix + movie.poster_path) : '/assets/not-found.png'
+             movie.poster_path ?  ( imgprefix + movie.poster_path) : 'assets/not-found.png'
              " class="w-100" alt="" />
         <div class="descripMovie ">
           <h3>{{ movie.title }}</h3>
@@ -41,7 +41,7 @@
     </li>
     }
     <li class="page-item">
-      <button class="page-link text-black  rounded-2 " (click)="nextPage()"
+      <button class="page-link text-black rounded-2" (click)="nextPage()"
         [disabled]="currentPage == (totalPages.length -1)">Next</button>
     </li>
   </ul>

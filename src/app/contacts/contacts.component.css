@@ -1,5 +1,5 @@
 .contactContent {
-  background-image: url(/assets/background.png);
+  background-image: url(../../../public/assets/background.png);
   height: calc(100vh - 335px);
   background-size: cover;
   background-position: center;

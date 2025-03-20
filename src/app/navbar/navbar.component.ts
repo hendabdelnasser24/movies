@@ -28,7 +28,7 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.userData()
   }
-
+  
   moviesAndTvShowsData() {
     this._MoviesService.getDataBySearching(this.query).subscribe((response) => {
       this.searchingData = response.results;
@@ -62,6 +62,12 @@ export class NavbarComponent {
   closeSearch(){
     this.query = '';
     this.searchingData = [];
+  }
+
+  postionTop() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
 }

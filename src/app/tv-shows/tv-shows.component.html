@@ -10,7 +10,7 @@
   data-aos="fade-down" data-aos-duration="1500" data-aos-once="false" data-aos-delay="100">
     <div class="movieCard">
       <a [routerLink]="['/movies-details'  , (tv.media_type || 'tv') ,tv.id ]">
-        <img [src]="tv.poster_path ?  ( imgprefix + tv.poster_path) : '/assets/not-found.png'" class="w-100" alt="" />
+        <img [src]="tv.poster_path ?  ( imgprefix + tv.poster_path) : 'assets/not-found.png'" class="w-100" alt="" />
         <div class="descripMovie mt-2 px-3 py-3 ">
           <h3 class="h6 mb-2">{{ tv.name }}</h3>
           <div class="voteLine ">

@@ -1,10 +1,10 @@
 <nav class=" position-relative d-flex justify-content-between align-items-center ">
   <div *ngIf="!loginData" class="d-flex align-items-center">
-    <img class="loginLogo" src="/assets/logo3.png" alt="">
+    <img class="loginLogo" src="assets/logo3.png" alt="">
     <h2 class="logoTitle ms-3 m-0 h6">MOVIE CHANNEL</h2>
   </div>
   <ul class=" firstList list-unstyled d-flex align-items-center py-3 ps-5 ">
-    <li *ngIf="loginData" class=" logoLi pe-3"><a routerLink="home"><img class="logoImg" src="/assets/logo3.png"
+    <li *ngIf="loginData" class=" logoLi pe-3"><a routerLink="home" (click)="postionTop()"><img class="logoImg" src="assets/logo3.png"
           alt=""></a>
     </li>
     <li *ngIf="loginData"> <button (click)="openSideBar()"><i class="fa-solid fa-bars"></i></button>
@@ -29,7 +29,7 @@
             <a (click)="openSearch()" (click)="closeSearch()"
               [routerLink]="['/movies-details'  , (item.media_type || 'movie')  ,item.id ]">
               <img [src]="
-               item.poster_path ?  ( imgprefix + item.poster_path) : '/assets/not-found.png'
+               item.poster_path ? (imgprefix + item.poster_path) : 'assets/not-found.png'
               " class="w-100 mb-2" alt="" />
               <h6>{{ item.title || item.name }}</h6>
             </a>

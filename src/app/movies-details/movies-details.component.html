@@ -4,7 +4,7 @@
   <div class="position-relative z-1">
     <div class="content d-flex align-items-center py-5 ">
       <div class="poster" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="50"> <img
-          [src]="(mediaDetails.poster_path || mediaDetails.profile_path) ?  ( imgprefix + (mediaDetails.poster_path || mediaDetails.profile_path)) : '/assets/not-found.png' "
+          [src]="(mediaDetails.poster_path || mediaDetails.profile_path) ?  ( imgprefix + (mediaDetails.poster_path || mediaDetails.profile_path)) : 'assets/not-found.png' "
           alt="">
       </div>
       <div class="info ">
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="imdb ">
-          <img src="/assets/IMDB_Logo_2016.svg.png" alt="">
+          <img src="assets/IMDB_Logo_2016.svg.png" alt="">
           <span>ID : {{mediaDetails.imdb_id ?? '-----' }} </span>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="movieCard">
         <a [routerLink]="['/movies-details'  ,  mediaType  ,movie.id ]">
           <img [src]="
-              (movie.poster_path || movie.profile_path) ?  ( imgprefix + (movie.poster_path || movie.profile_path)) : '/assets/not-found.png'
+              (movie.poster_path || movie.profile_path) ?  ( imgprefix + (movie.poster_path || movie.profile_path)) : 'assets/not-found.png'
             " class="w-100" alt="" />
           <div class="descripMovie ">
             <h3>{{ movie.title || movie.name }}</h3>

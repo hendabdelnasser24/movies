@@ -24,13 +24,19 @@ export class HomeComponent {
   constructor(private _moviesService: MoviesService) { }
 
   ngOnInit() {
-
+    this.pagePostion()
     this.GetTrendingMovie('Trending Movies')
     this.GetTrendingTvShows()
     this.GetTrendingActors()
     AOS.init();
   }
 
+  pagePostion() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+  
   GetTrendingMovie(title: string) {
     this.mainTitle = title
     this.genreMovies = [];

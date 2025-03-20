@@ -1,12 +1,11 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withHashLocation } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideClientHydration, withI18nSupport } from '@angular/platform-browser';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZv5VWfgSMDhiuzYSV2qB6Pb2OHARpOQA",
@@ -21,8 +20,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimationsAsync(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withHashLocation()),
-    provideClientHydration(withI18nSupport()),
+    provideRouter(routes),
     provideHttpClient(),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
