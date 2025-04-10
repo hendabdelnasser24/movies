@@ -1,13 +1,13 @@
 <form [formGroup]="genreForm">
-  <select class="form-select w-auto pe-5" aria-label="Default select example" (change)="getMovieByGenre(1)"
+  <select class="form-select w-auto pe-5" aria-label="Default select example" (change)="getMoviesByGenre(1)"
     (change)=" activeButton(0) " formControlName="selectedOption">
     <option *ngFor="let genre of genresIdAndName" [value]="genre.id" selected>{{genre.name}}</option>
   </select>
 </form>
 
 <div class="row mt-4 mb-5">
-  <div *ngFor="let movie of genreMovies" class="col-md-3 col-6 col-sm-4 col-xl-2"
-  data-aos="fade-down" data-aos-duration="1500" data-aos-once="false" data-aos-delay="100">
+  <div *ngFor="let movie of genreMovies" class="col-md-3 col-6 col-sm-4 col-xl-2" data-aos="fade-down"
+    data-aos-duration="1500" data-aos-once="false" data-aos-delay="100">
     <div class="movieCard">
       <a [routerLink]="['/movies-details'  , (movie.media_type || 'movie')  ,movie.id ]">
         <img [src]="
@@ -37,7 +37,7 @@
     @for (page of totalPages; track $index) {
     <li aria-current="page">
       <a class="page-link text-black rounded-2" [class.activePage]="currentPage == $index"
-        (click)="getMovieByGenre(page)" (click)="activeButton($index)">{{page}}</a>
+        (click)="getMoviesByGenre(page)" (click)="activeButton($index)">{{page}}</a>
     </li>
     }
     <li class="page-item">
@@ -46,3 +46,6 @@
     </li>
   </ul>
 </nav>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

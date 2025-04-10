@@ -3,7 +3,7 @@
   <div class="overlay w-100 h-100 position-absolute"></div>
   <div class="position-relative z-1">
     <div class="content d-flex align-items-center py-5 ">
-      <div class="poster" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="50"> <img
+      <div class="poster" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="250"> <img
           [src]="(mediaDetails.poster_path || mediaDetails.profile_path) ?  ( imgprefix + (mediaDetails.poster_path || mediaDetails.profile_path)) : 'assets/not-found.png' "
           alt="">
       </div>
@@ -35,7 +35,7 @@
     <div *ngFor="let movie of similarMovies" class="col-md-3 col-6 col-sm-3 col-xl-2" data-aos="fade-down"
       data-aos-duration="1300">
       <div class="movieCard">
-        <a [routerLink]="['/movies-details'  ,  mediaType  ,movie.id ]">
+        <a [routerLink]="['/movies-details'  ,  mediaType  ,movie.id ]" (click)="postionTop()">
           <img [src]="
               (movie.poster_path || movie.profile_path) ?  ( imgprefix + (movie.poster_path || movie.profile_path)) : 'assets/not-found.png'
             " class="w-100" alt="" />
@@ -48,9 +48,11 @@
               <span> {{ ( movie.release_date || movie.first_air_date ) | date : 'yyyy'}} </span>
             </div>
           </div>
-
         </a>
       </div>
     </div>
   </div>
 </div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

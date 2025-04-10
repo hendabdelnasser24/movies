@@ -136,8 +136,8 @@ nav li .logoImg {
     position: absolute;
     background-color: hsla(264, 21%, 9%, 0.8);
     width: 100%;
-    height: calc(100vh - 12px);
-    top: 0;
+    height: 100vh;
+    top: -20px;
     z-index: -1;
 
     input {
@@ -146,15 +146,17 @@ nav li .logoImg {
       transform: translateX(-50%);
       display: block;
       width: 90%;
-      top: 78px;
+      top: 100px;
     }
   }
 
   .searchArea {
-    top: 106px;
+    top: 130px;
     width: 90%;
+    max-height: calc(100vh - 162px);
     left: 50%;
     transform: translateX(-50%);
+    overflow-y: scroll;
   }
 
   .loginLogo {

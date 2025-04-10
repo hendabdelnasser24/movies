@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, NgIf, FormsModule, NgFor,RouterLinkActive],
+  imports: [RouterLink, NgIf, FormsModule, NgFor, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -28,7 +28,7 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.userData()
   }
-  
+
   moviesAndTvShowsData() {
     this._MoviesService.getDataBySearching(this.query).subscribe((response) => {
       this.searchingData = response.results;
@@ -54,20 +54,21 @@ export class NavbarComponent {
     this.isOpen = !this.isOpen;
     this.sideBarState.emit(this.isOpen);
   }
-  
+
   openSearch() {
     this.isOpendSearch = !this.isOpendSearch
   }
 
-  closeSearch(){
+  closeSearch() {
     this.query = '';
     this.searchingData = [];
   }
 
   postionTop() {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 150)
   }
-
 }

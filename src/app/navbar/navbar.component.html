@@ -4,8 +4,10 @@
     <h2 class="logoTitle ms-3 m-0 h6">MOVIE CHANNEL</h2>
   </div>
   <ul class=" firstList list-unstyled d-flex align-items-center py-3 ps-5 ">
-    <li *ngIf="loginData" class=" logoLi pe-3"><a routerLink="home" (click)="postionTop()"><img class="logoImg" src="assets/logo3.png"
-          alt=""></a>
+    <li *ngIf="loginData" class=" logoLi pe-3">
+      <a routerLink="home" (click)="postionTop()">
+        <img class="logoImg" src="assets/logo3.png" alt="">
+      </a>
     </li>
     <li *ngIf="loginData"> <button (click)="openSideBar()"><i class="fa-solid fa-bars"></i></button>
     </li>

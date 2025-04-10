@@ -4,11 +4,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, DecimalPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import AOS from 'aos';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-tv-shows',
   standalone: true,
-  imports: [NgFor, DecimalPipe, RouterLink, DatePipe, ReactiveFormsModule],
+  imports: [NgFor, DecimalPipe, RouterLink, DatePipe, NgxSpinnerModule, ReactiveFormsModule],
   templateUrl: './tv-shows.component.html',
   styleUrl: './tv-shows.component.css'
 })
@@ -26,7 +27,7 @@ export class TvShowsComponent {
   currentPage: number = 0;
 
 
-  constructor(private _moviesService: MoviesService) { }
+  constructor(private _moviesService: MoviesService, private _ngxSpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getTvGenresIdAndName()
@@ -35,17 +36,25 @@ export class TvShowsComponent {
   }
 
   getTvGenresIdAndName() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    this._ngxSpinnerService.show();
     this._moviesService.getTvGenreIdAndName().subscribe((Response) => {
       this.genresTvIdAndName = Response.genres
-
+      this._ngxSpinnerService.hide();
     })
   }
 
   getTvShowsByGenre(pageNumber: number) {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     const id = this.genreForm.controls['selectedOption'].value
-    this.genreTvShows = [];
+    this._ngxSpinnerService.show();
     this._moviesService.showTvByGenre(id, pageNumber).subscribe((Response) => {
       this.genreTvShows = Response.results;
+      this._ngxSpinnerService.hide();
       this.getTotalPages(20)
     })
     if (typeof window !== 'undefined') {

@@ -30,6 +30,10 @@ export class LoginComponent {
 
   constructor(private _authservice: AuthService, private _router: Router) { }
 
+  ngOnInit(): void {
+    this.postionTop()
+  }
+
   get f() {
     return this.logInform.controls
   }
@@ -63,6 +67,12 @@ export class LoginComponent {
 
   displayErrorCode(message: string) {
     this.displayErrorMessage = message
+  }
+
+  postionTop() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
 }

@@ -4,11 +4,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, DecimalPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import AOS from 'aos';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [NgFor, DecimalPipe, RouterLink, DatePipe, ReactiveFormsModule],
+  imports: [NgFor, DecimalPipe, RouterLink, DatePipe, NgxSpinnerModule, ReactiveFormsModule],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css'
 })
@@ -26,33 +27,38 @@ export class MoviesComponent {
   currentPage: number = 0;
 
 
-  constructor(private _moviesService: MoviesService) { }
+  constructor(private _moviesService: MoviesService, private _ngxSpinnerService: NgxSpinnerService) { }
 
 
   ngOnInit(): void {
 
     this.getGenresIdAndName()
-    this.getMovieByGenre(1)
+    this.getMoviesByGenre(1)
     AOS.init();
   }
 
   getGenresIdAndName() {
-    this._moviesService.getMovieGenreIdAndName().subscribe((Response) => {
-      this.genresIdAndName = Response.genres
-
-    })
-  }
-
-  getMovieByGenre(pageNumber: number) {
-    const id = this.genreForm.controls['selectedOption'].value
-    this.genreMovies = [];
-    this._moviesService.showMoviesByGenre(id, pageNumber).subscribe((response) => {
-      this.genreMovies = response.results;
-      this.getTotalPages(20)
-    })
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    this._ngxSpinnerService.show();
+    this._moviesService.getMovieGenreIdAndName().subscribe((Response) => {
+      this.genresIdAndName = Response.genres
+      this._ngxSpinnerService.hide();
+    })
+  }
+
+  getMoviesByGenre(pageNumber: number) {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    const id = this.genreForm.controls['selectedOption'].value
+    this._ngxSpinnerService.show();
+    this._moviesService.showMoviesByGenre(id, pageNumber).subscribe((response) => {
+      this.genreMovies = response.results;
+      this._ngxSpinnerService.hide();
+      this.getTotalPages(20)
+    })
   }
 
   getTotalPages(totalPages: number) {
@@ -68,7 +74,7 @@ export class MoviesComponent {
 
   nextPage() {
     this.currentPage += 1;
-    this.getMovieByGenre(this.currentPage + 1)
+    this.getMoviesByGenre(this.currentPage + 1)
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -76,7 +82,7 @@ export class MoviesComponent {
 
   previousPage() {
     this.currentPage -= 1;
-    this.getMovieByGenre(this.currentPage + 1)
+    this.getMoviesByGenre(this.currentPage + 1)
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

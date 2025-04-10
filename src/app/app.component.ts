@@ -25,11 +25,11 @@ export class AppComponent {
   isLogin: boolean = false;
   isOpenSideBar: boolean = false;
 
-  
+
   constructor(private _authsevice: AuthService) { }
 
   ngOnInit(): void {
-    this.checkIsLogin()
+    this.checkIsLogin();
   }
 
   checkIsLogin() {
