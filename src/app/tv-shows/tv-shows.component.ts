@@ -47,6 +47,9 @@ export class TvShowsComponent {
   }
 
   getTvShowsByGenre(pageNumber: number) {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     const id = this.genreForm.controls['selectedOption'].value
     this._ngxSpinnerService.show();
     this._moviesService.showTvByGenre(id, pageNumber).subscribe((Response) => {
@@ -54,9 +57,6 @@ export class TvShowsComponent {
       this.getTotalPages(20)
     })
     this._ngxSpinnerService.hide();
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   }
 
   getTotalPages(totalPages: number) {
