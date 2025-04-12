@@ -38,26 +38,26 @@ export class MoviesComponent {
   }
 
   getGenresIdAndName() {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
     this._ngxSpinnerService.show();
     this._moviesService.getMovieGenreIdAndName().subscribe((Response) => {
       this.genresIdAndName = Response.genres
       this._ngxSpinnerService.hide();
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     })
   }
 
   getMoviesByGenre(pageNumber: number) {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
     const id = this.genreForm.controls['selectedOption'].value
     this._ngxSpinnerService.show();
     this._moviesService.showMoviesByGenre(id, pageNumber).subscribe((response) => {
       this.genreMovies = response.results;
       this._ngxSpinnerService.hide();
       this.getTotalPages(20)
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     })
   }
 

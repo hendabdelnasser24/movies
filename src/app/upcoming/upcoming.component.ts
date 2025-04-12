@@ -35,6 +35,9 @@ export class UpcomingComponent {
       this.upcomingMovies = response.results
       this._ngxSpinnerService.hide();
       this.getTotalPages(20)
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     })
   }
 
@@ -52,11 +55,17 @@ export class UpcomingComponent {
   nextPage() {
     this.currentPage += 1;
     this.getUpcomingMovies(this.currentPage + 1)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   previousPage() {
     this.currentPage -= 1;
     this.getUpcomingMovies(this.currentPage + 1)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
 }

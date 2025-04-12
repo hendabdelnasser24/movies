@@ -22,8 +22,13 @@ nav .loginLogo {
   display: none;
 }
 
+.searching {
+  width: 100%;
+  max-width: 470px;
+  
+}
+
 .searching input {
-  width: 470px;
   font-weight: 500;
   border: 1px solid rgb(54, 54, 54);
   border-radius: 18px;
@@ -92,6 +97,10 @@ nav li .logoImg {
   nav button i {
     color: white;
     font-size: 18px;
+  }
+  
+  nav .firstList button i{
+    font-size: 20px;
   }
 
   nav .logoLi {

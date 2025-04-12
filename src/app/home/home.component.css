@@ -1,10 +1,3 @@
-.mainCover img {
-  margin-top: 30px;
-  height: 500px;
-  width: auto;
-  border-radius: 12px;
-}
-
 .genres li {
   margin-right: 6px;
 }
@@ -34,32 +27,39 @@
 }
 
 @media (max-width: 1300px) {
-  .mainCover img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
-
   .genres ul {
     display: flex;
     flex-wrap: wrap;
+    gap: 6px;
   }
 
   .genres li {
-    margin: 0px 12px 14px 0;
+    margin-bottom: 4px;
+    margin-right: 0px;
+    width: 15%;
+    max-width: 145px;
+    min-width: 120px;
   }
 
   .genres button {
-    width: auto;
+    width: 100%;
     height: auto;
-    padding: 10px 14px;
-    border-radius: 14px;
+    padding: 14px 0px;
+    border-radius: 16px;
   }
 }
 
 @media (max-width: 576px) {
+  .genres ul {
+    gap: 10px;
+  }
+  .genres li {
+    width: auto;
+    max-width: auto;
+    min-width: auto;
+  }
   .genres button {
-    padding: 10px 12px;
+    padding: 12px 14px;
     border-radius: 12px;
   }
 
