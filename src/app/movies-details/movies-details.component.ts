@@ -38,11 +38,9 @@ export class MoviesDetailsComponent {
   }
 
   postionTop() {
-    setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 150)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   getIdAndMediaFromLink() {
@@ -54,11 +52,11 @@ export class MoviesDetailsComponent {
     this._ngxSpinnerService.show();
     this._MoviesService.getMediaDetailsByTypeAndId(this.mediaType, this.mediaId).subscribe((response) => {
       this.mediaDetails = response;
-      this._ngxSpinnerService.hide();
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
     })
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    this._ngxSpinnerService.hide();
   }
 
   getSimilarMovies() {

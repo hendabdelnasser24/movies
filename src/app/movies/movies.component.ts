@@ -41,11 +41,11 @@ export class MoviesComponent {
     this._ngxSpinnerService.show();
     this._moviesService.getMovieGenreIdAndName().subscribe((Response) => {
       this.genresIdAndName = Response.genres
-      this._ngxSpinnerService.hide();
+    })
+    this._ngxSpinnerService.hide();
       if (typeof window !== 'undefined') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    })
   }
 
   getMoviesByGenre(pageNumber: number) {
@@ -55,10 +55,11 @@ export class MoviesComponent {
       this.genreMovies = response.results;
       this._ngxSpinnerService.hide();
       this.getTotalPages(20)
+    })
+    this._ngxSpinnerService.hide();
       if (typeof window !== 'undefined') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    })
   }
 
   getTotalPages(totalPages: number) {
@@ -75,9 +76,10 @@ export class MoviesComponent {
   nextPage() {
     this.currentPage += 1;
     this.getMoviesByGenre(this.currentPage + 1)
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this._ngxSpinnerService.hide();
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
   }
 
   previousPage() {

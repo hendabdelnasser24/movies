@@ -35,10 +35,10 @@ export class UpcomingComponent {
       this.upcomingMovies = response.results
       this._ngxSpinnerService.hide();
       this.getTotalPages(20)
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
     })
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   getTotalPages(totalPages: number) {
