@@ -6,7 +6,7 @@
   <div class="loginArea w-50 mx-auto py-5">
     <h2 class="mb-4">Login</h2>
     <div *ngIf="displayErrorMessage" class="alert alert-danger"> {{displayErrorMessage}} </div>
-    <form [formGroup]="logInform" (ngSubmit)="submitlogInForm()">
+    <form [formGroup]="logInform" (ngSubmit)="submitlogInForm()" class="position-relative">
 
       <div class="email mb-3">
         <label for="email">Email</label>
@@ -39,7 +39,7 @@
           </p>
         </div>
       </div>
-      <button [disabled]="logInform.invalid" type="submit" class="loginButton btn btn-info mt-4 me-auto">
+      <button [disabled]="logInform.invalid" type="submit" class="loginButton position-absolute end-0 me-4 btn btn-info mt-4">
         Login
       </button>
     </form>

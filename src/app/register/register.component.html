@@ -3,10 +3,10 @@
     <h2 class="mt-5">welcome to the world of endless entertainment</h2>
     <h5 class="mt-4">Register to Discover, Stream and Enjoy</h5>
   </div>
-  <div class="registerArea w-75 mx-auto py-5">
+  <div class="registerArea w-50 mx-auto py-5">
     <h2 class="register text-center h3">Register Now</h2>
     <div *ngIf="displayErrorMessage" class="alert alert-danger mt-3"> {{displayErrorMessage}} </div>
-    <form [formGroup]="registerform" (ngSubmit)="submitRegisterForm()">
+    <form [formGroup]="registerform" (ngSubmit)="submitRegisterForm()" class="position-relative">
 
       <div class="email mb-3">
         <label for="email">Email</label>
@@ -39,7 +39,7 @@
           </p>
         </div>
       </div>
-      <button [disabled]="registerform.invalid" type="submit" class="registerButton  btn btn-info mt-4">
+      <button [disabled]="registerform.invalid" type="submit" class="registerButton position-absolute end-0 me-4 btn btn-info mt-4">
         Register
       </button>
     </form>
