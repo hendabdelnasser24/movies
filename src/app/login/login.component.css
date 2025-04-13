@@ -9,6 +9,12 @@
   border: 1px solid #261515;
 }
 
+.loginButton:active{
+  background-color: #c22222;
+  color: rgb(0, 0, 0);
+  border: 1px solid #261515;
+}
+
 @media (max-width: 1300px) {
   .content {
     margin-top: 180px !important ;
