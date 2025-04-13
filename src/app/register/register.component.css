@@ -23,6 +23,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .registerArea {
+    width: 75% !important;
+  }
+}
+
 @media (max-width: 576px) {
   .content {
     margin-top: 120px !important ;

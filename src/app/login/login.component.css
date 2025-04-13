@@ -13,6 +13,9 @@
   .content {
     margin-top: 180px !important ;
   }
+}
+
+@media (max-width: 768px) {
   .loginArea {
     width: 75% !important;
   }
