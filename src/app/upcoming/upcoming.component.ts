@@ -28,6 +28,12 @@ export class UpcomingComponent {
     AOS.init();
   }
 
+  pagePostion() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+  }
+
   getUpcomingMovies(pageNumber: number) {
     this.upcomingMovies = [];
     this._ngxSpinnerService.show();
@@ -36,9 +42,7 @@ export class UpcomingComponent {
       this._ngxSpinnerService.hide();
       this.getTotalPages(20)
     })
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.pagePostion()
   }
 
   getTotalPages(totalPages: number) {
@@ -55,17 +59,13 @@ export class UpcomingComponent {
   nextPage() {
     this.currentPage += 1;
     this.getUpcomingMovies(this.currentPage + 1)
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.pagePostion()
   }
 
   previousPage() {
     this.currentPage -= 1;
     this.getUpcomingMovies(this.currentPage + 1)
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.pagePostion()
   }
 
 }

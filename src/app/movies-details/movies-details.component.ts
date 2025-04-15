@@ -35,11 +35,12 @@ export class MoviesDetailsComponent {
     this.getMovieDetailsById();
     this.getSimilarMovies();
     AOS.init();
+    this.postionTop()
   }
 
   postionTop() {
     if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     }
   }
 
@@ -49,13 +50,11 @@ export class MoviesDetailsComponent {
   }
 
   getMovieDetailsById() {
+    this.postionTop()
     this._ngxSpinnerService.show();
     this._MoviesService.getMediaDetailsByTypeAndId(this.mediaType, this.mediaId).subscribe((response) => {
       this.mediaDetails = response;
     })
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
     this._ngxSpinnerService.hide();
   }
 

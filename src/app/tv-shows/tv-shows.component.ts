@@ -35,21 +35,23 @@ export class TvShowsComponent {
     AOS.init();
   }
 
+  pagePostion() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+  }
+
   getTvGenresIdAndName() {
     this._ngxSpinnerService.show();
     this._moviesService.getTvGenreIdAndName().subscribe((Response) => {
       this.genresTvIdAndName = Response.genres
     })
     this._ngxSpinnerService.hide();
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.pagePostion()
   }
 
   getTvShowsByGenre(pageNumber: number) {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.pagePostion()
     const id = this.genreForm.controls['selectedOption'].value
     this._ngxSpinnerService.show();
     this._moviesService.showTvByGenre(id, pageNumber).subscribe((Response) => {
@@ -73,16 +75,12 @@ export class TvShowsComponent {
   nextPage() {
     this.currentPage += 1;
     this.getTvShowsByGenre(this.currentPage + 1)
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.pagePostion()
   }
 
   previousPage() {
     this.currentPage -= 1;
     this.getTvShowsByGenre(this.currentPage + 1)
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.pagePostion()
   }
 }

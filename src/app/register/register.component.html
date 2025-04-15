@@ -26,7 +26,7 @@
 
       <div class="password">
         <label for="password">Password</label>
-        <input formControlName="password" type="text" class="form-control" name="" id="password" />
+        <input formControlName="password" type="password" class="form-control" name="" id="password" />
         <div *ngIf="
           registerform.get('password')?.errors != null &&
           registerform.get('password')?.touched
@@ -35,11 +35,14 @@
             password is required
           </p>
           <p *ngIf="f['password']?.errors?.['pattern']" class="m-0">
-            password invalid
+            First letter capital (A-Z) <br>
+            Length: 6-14 characters <br>
+            No spaces/symbols
           </p>
         </div>
       </div>
-      <button [disabled]="registerform.invalid" type="submit" class="registerButton position-absolute end-0 me-4 btn btn-info mt-4">
+      <button [disabled]="registerform.invalid" type="submit"
+        class="registerButton position-absolute end-0 me-4 btn btn-info mt-4">
         Register
       </button>
     </form>

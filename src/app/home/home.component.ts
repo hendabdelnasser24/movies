@@ -26,16 +26,16 @@ export class HomeComponent {
   constructor(private _moviesService: MoviesService, private _ngxSpinnerService: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.pagePostion()
     this.GetTrendingMovie('Trending Movies')
     this.GetTrendingTvShows()
     this.GetTrendingActors()
     AOS.init();
+    this.pagePostion()
   }
 
   pagePostion() {
     if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     }
   }
 
