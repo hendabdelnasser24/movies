@@ -25,7 +25,6 @@ nav .loginLogo {
 .searching {
   width: 100%;
   max-width: 470px;
-  
 }
 
 .searching input {
@@ -98,8 +97,8 @@ nav li .logoImg {
     color: white;
     font-size: 18px;
   }
-  
-  nav .firstList button i{
+
+  nav .firstList button i {
     font-size: 20px;
   }
 
@@ -115,17 +114,12 @@ nav li .logoImg {
   .twitterI,
   .youtubeI {
     display: none;
-  }
-
-  .home,
-  .contact,
-  .about,
-  .instagramI,
-  .facebookI,
-  .twitterI,
-  .youtubeI {
     padding-right: 0px !important;
     padding-left: 0px !important;
+  }
+
+  .searching {
+    max-width: 100%;
   }
 
   .searchIcon i {
@@ -144,7 +138,7 @@ nav li .logoImg {
   .opend {
     position: absolute;
     background-color: hsla(264, 21%, 9%, 0.8);
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     top: -20px;
     z-index: -1;
@@ -174,10 +168,6 @@ nav li .logoImg {
 }
 
 @media (max-width: 576px) {
-  .loginLogo {
-    margin-left: 24px !important;
-  }
-
   .logoTitle {
     font-size: 12px;
   }

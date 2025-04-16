@@ -52,7 +52,9 @@ hr {
   padding-left: 42px !important;
 }
 
+
 @media (max-width: 1300px) {
+  
   .logo {
     display: none !important;
   }

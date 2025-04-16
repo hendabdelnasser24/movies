@@ -29,7 +29,7 @@
         <div *ngFor="let item of searchingData" class=" py-2 col-xl-1 col-lg-2 col-md-2 col-sm-3 col-4">
           <div class="item">
             <a (click)="openSearch()" (click)="closeSearch()"
-              [routerLink]="['/movies-details'  , (item.media_type || 'movie')  ,item.id ]">
+              [routerLink]="['/details-show' , (item.media_type || 'movie')  ,item.id]">
               <img [src]="
                item.poster_path ? (imgprefix + item.poster_path) : 'assets/not-found.png'
               " class="w-100 mb-2" alt="" />
