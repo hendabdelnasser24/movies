@@ -45,5 +45,5 @@ export class MoviesService {
   getDataBySearching(query: string): Observable<any> {
     return this._httpclient.get(`https://api.themoviedb.org/3/search/multi?api_key=09a9c9d85e17c15723e9721f00211445&query=${query}`)
   }
-  
+
 }

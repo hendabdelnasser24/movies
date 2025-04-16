@@ -5,10 +5,11 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-header-home',
   standalone: true,
-  imports: [CarouselModule, NgFor,RouterLink],
+  imports: [CarouselModule, NgFor, RouterLink],
   templateUrl: './header-home.component.html',
   styleUrl: './header-home.component.css'
 })
+
 export class HeaderHomeComponent {
 
   @Input() headerTrendingMovies: any[] = [];
@@ -20,8 +21,8 @@ export class HeaderHomeComponent {
     pullDrag: false,
     dots: false,
     autoplay: true,
-    autoplayTimeout : 2000,
-    autoplaySpeed : 900,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 900,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {

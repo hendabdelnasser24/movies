@@ -35,6 +35,7 @@ export class UpcomingComponent {
   }
 
   getUpcomingMovies(pageNumber: number) {
+    this.pagePostion()
     this.upcomingMovies = [];
     this._ngxSpinnerService.show();
     this._moviesService.getUpcomingMovies(pageNumber).subscribe((response) => {
@@ -42,7 +43,6 @@ export class UpcomingComponent {
       this._ngxSpinnerService.hide();
       this.getTotalPages(20)
     })
-    this.pagePostion()
   }
 
   getTotalPages(totalPages: number) {
@@ -59,13 +59,11 @@ export class UpcomingComponent {
   nextPage() {
     this.currentPage += 1;
     this.getUpcomingMovies(this.currentPage + 1)
-    this.pagePostion()
   }
 
   previousPage() {
     this.currentPage -= 1;
     this.getUpcomingMovies(this.currentPage + 1)
-    this.pagePostion()
   }
 
 }

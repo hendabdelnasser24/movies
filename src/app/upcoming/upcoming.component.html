@@ -1,12 +1,11 @@
 <div class="mx-lg-2 mx-md-3 mx-sm-4 mx-auto">
   <div>
     <h2 class="mt-5  ps-4 h4">Coming Soon</h2>
-
     <div class="row mt-5 mb-5">
       <div *ngFor="let movie of upcomingMovies" class="col-md-3 col-6 col-sm-6 col-xl-2" data-aos="fade-down"
         data-aos-duration="1500" data-aos-once="false" data-aos-delay="100">
         <div class="movieCard">
-          <a [routerLink]="['/movies-details'  , (movie.media_type || 'movie')  ,movie.id ]">
+          <a [routerLink]="['/details-show'  , (movie.media_type || 'movie')  ,movie.id ]">
             <img [src]="
              movie.poster_path ?  ( imgprefix + movie.poster_path) : 'assets/not-found.png'
              " class="w-100" alt="" />
@@ -19,12 +18,12 @@
                 <span> {{movie.release_date | date : 'yyyy'}} </span>
               </div>
             </div>
-
           </a>
         </div>
       </div>
     </div>
   </div>
+
   <nav aria-label="..." class="mb-5 ">
     <ul class="pagination d-flex justify-content-center flex-wrap gap-2">
       <li class="page-item ">
@@ -44,6 +43,7 @@
     </ul>
   </nav>
 </div>
+
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
   <p style="color: white"> Loading... </p>
 </ngx-spinner>

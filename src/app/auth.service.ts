@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth,
+import {
+  Auth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from '@angular/fire/auth';
@@ -14,8 +15,8 @@ export class AuthService {
 
   userData: any = new BehaviorSubject(null);
 
-  constructor(private auth: Auth, private _router: Router) { 
-    if(localStorage.getItem('userToken') != null){
+  constructor(private auth: Auth, private _router: Router) {
+    if (localStorage.getItem('userToken') != null) {
       this.saveData()
     }
   }
@@ -38,4 +39,5 @@ export class AuthService {
     this.userData.next(null);
     this._router.navigate(['login'])
   }
+
 }

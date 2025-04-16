@@ -29,6 +29,12 @@ export class NavbarComponent {
     this.userData()
   }
 
+  pagePostion() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+  }
+
   moviesAndTvShowsData() {
     this._MoviesService.getDataBySearching(this.query).subscribe((response) => {
       this.searchingData = response.results;
@@ -64,11 +70,4 @@ export class NavbarComponent {
     this.searchingData = [];
   }
 
-  postionTop() {
-    setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 150)
-  }
 }

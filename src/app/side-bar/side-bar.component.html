@@ -1,9 +1,8 @@
 <div class="sideBar position-fixed z-3" [class]="openedBar ? 'open': 'closed' ">
-  <a class=" logo d-flex flex-column align-items-center mt-5" routerLink="home" (click)="postionTop()"><img
-      src="assets/logo3.png" alt="">
+  <a class=" logo d-flex flex-column align-items-center mt-5" routerLink="home" (click)="postionTop()">
+    <img src="assets/logo3.png" alt="">
     <h2 class="logoTitle mt-3 h6 fw-bolder">MOVIE CHANNEL</h2>
   </a>
-
   <hr class="my-5 mx-3">
   <div class="Categories">
     <ul>
@@ -16,7 +15,6 @@
             class="fa-solid fa-tv"></i> <span>Tv Shows</span></a></li>
       <li><a routerLink="upcoming" routerLinkActive="activeLink" (click)="sidebarState()"> <i
             class="fa-solid fa-tv"></i> <span>Upcoming</span></a></li>
-
     </ul>
   </div>
 </div>

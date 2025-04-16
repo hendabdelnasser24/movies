@@ -9,7 +9,7 @@
   <div *ngFor="let tv of genreTvShows" class="col-md-3 col-6 col-sm-6 col-xl-2" data-aos="fade-down"
     data-aos-duration="1500" data-aos-once="false" data-aos-delay="100">
     <div class="movieCard">
-      <a [routerLink]="['/movies-details'  , (tv.media_type || 'tv') ,tv.id ]">
+      <a [routerLink]="['/details-show'  , (tv.media_type || 'tv') ,tv.id ]">
         <img [src]="tv.poster_path ?  ( imgprefix + tv.poster_path) : 'assets/not-found.png'" class="w-100" alt="" />
         <div class="descripMovie mt-2 px-3 py-3 ">
           <h3 class="h6 mb-2">{{ tv.name }}</h3>
@@ -24,7 +24,6 @@
     </div>
   </div>
 </div>
-
 
 <nav aria-label="..." class="mb-5 ">
   <ul class="pagination d-flex justify-content-center flex-wrap gap-2">
@@ -44,6 +43,7 @@
     </li>
   </ul>
 </nav>
+
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
   <p style="color: white"> Loading... </p>
 </ngx-spinner>

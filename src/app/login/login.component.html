@@ -1,5 +1,5 @@
 <div class="content">
-  <div class=" textBox text-center ">
+  <div class=" textBox text-center">
     <h2 class="mt-5">welcome to the world of endless entertainment</h2>
     <h5 class="mt-4">Login to Discover, Stream and Enjoy</h5>
   </div>
@@ -7,7 +7,6 @@
     <h2 class="mb-4">Login</h2>
     <div *ngIf="displayErrorMessage" class="alert alert-danger"> {{displayErrorMessage}} </div>
     <form [formGroup]="logInform" (ngSubmit)="submitlogInForm()" class="position-relative">
-
       <div class="email mb-3">
         <label for="email">Email</label>
         <input formControlName="email" type="email" class="form-control" name="" id="email" />
@@ -23,7 +22,6 @@
           </p>
         </div>
       </div>
-
       <div class="password">
         <label for="password">Password</label>
         <input formControlName="password" type="password" class="form-control" name="" id="password" />

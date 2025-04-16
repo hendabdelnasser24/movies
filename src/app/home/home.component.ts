@@ -30,13 +30,6 @@ export class HomeComponent {
     this.GetTrendingTvShows()
     this.GetTrendingActors()
     AOS.init();
-    this.pagePostion()
-  }
-
-  pagePostion() {
-    if (typeof window !== 'undefined') {
-      window.scrollTo(0, 0);
-    }
   }
 
   GetTrendingMovie(title: string) {
@@ -54,6 +47,8 @@ export class HomeComponent {
     this._moviesService.trendMovies('tv').subscribe((response) => {
       this.trendingTv = response.results;
       this._ngxSpinnerService.hide();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
     })
   }
 
@@ -62,7 +57,6 @@ export class HomeComponent {
     this._moviesService.trendMovies('person').subscribe((response) => {
       this.trendingPerson = response.results;
       this._ngxSpinnerService.hide();
-
     })
   }
 

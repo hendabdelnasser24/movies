@@ -42,12 +42,12 @@ export class TvShowsComponent {
   }
 
   getTvGenresIdAndName() {
+    this.pagePostion()
     this._ngxSpinnerService.show();
     this._moviesService.getTvGenreIdAndName().subscribe((Response) => {
       this.genresTvIdAndName = Response.genres
+      this._ngxSpinnerService.hide();
     })
-    this._ngxSpinnerService.hide();
-    this.pagePostion()
   }
 
   getTvShowsByGenre(pageNumber: number) {
@@ -56,9 +56,9 @@ export class TvShowsComponent {
     this._ngxSpinnerService.show();
     this._moviesService.showTvByGenre(id, pageNumber).subscribe((Response) => {
       this.genreTvShows = Response.results;
+      this._ngxSpinnerService.hide();
       this.getTotalPages(20)
     })
-    this._ngxSpinnerService.hide();
   }
 
   getTotalPages(totalPages: number) {
@@ -75,12 +75,11 @@ export class TvShowsComponent {
   nextPage() {
     this.currentPage += 1;
     this.getTvShowsByGenre(this.currentPage + 1)
-    this.pagePostion()
   }
 
   previousPage() {
     this.currentPage -= 1;
     this.getTvShowsByGenre(this.currentPage + 1)
-    this.pagePostion()
   }
+
 }

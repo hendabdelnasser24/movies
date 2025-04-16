@@ -29,6 +29,10 @@ export class RegisterComponent {
 
   constructor(private _authservice: AuthService, private _router: Router) { }
 
+  ngOnInit(): void {
+    this.postionTop()
+  }
+
   get f() {
     return this.registerform.controls
   }
@@ -56,6 +60,12 @@ export class RegisterComponent {
 
   displayErrorCode(message: string) {
     this.displayErrorMessage = message
+  }
+
+  postionTop() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
 }

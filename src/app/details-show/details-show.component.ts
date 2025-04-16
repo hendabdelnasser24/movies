@@ -6,14 +6,13 @@ import AOS from 'aos';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-movies-details',
+  selector: 'app-details-show',
   standalone: true,
   imports: [NgStyle, NgFor, DecimalPipe, RouterLink, DatePipe, NgxSpinnerModule],
-  templateUrl: './movies-details.component.html',
-  styleUrl: './movies-details.component.css'
+  templateUrl: './details-show.component.html',
+  styleUrl: './details-show.component.css'
 })
-
-export class MoviesDetailsComponent {
+export class DetailsShowComponent {
 
   mediaId: string = '';
   mediaType: string = '';
@@ -35,13 +34,6 @@ export class MoviesDetailsComponent {
     this.getMovieDetailsById();
     this.getSimilarMovies();
     AOS.init();
-    this.postionTop()
-  }
-
-  postionTop() {
-    if (typeof window !== 'undefined') {
-      window.scrollTo(0, 0);
-    }
   }
 
   getIdAndMediaFromLink() {
@@ -50,12 +42,14 @@ export class MoviesDetailsComponent {
   }
 
   getMovieDetailsById() {
-    this.postionTop()
     this._ngxSpinnerService.show();
     this._MoviesService.getMediaDetailsByTypeAndId(this.mediaType, this.mediaId).subscribe((response) => {
       this.mediaDetails = response;
+      this._ngxSpinnerService.hide();
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     })
-    this._ngxSpinnerService.hide();
   }
 
   getSimilarMovies() {
@@ -63,13 +57,19 @@ export class MoviesDetailsComponent {
     if (this.mediaType == 'movie' || this.mediaType == 'tv') {
       this._MoviesService.getSimilarMovies(this.mediaType, this.mediaId).subscribe((response) => {
         this.similarMovies = response.results;
+        this._ngxSpinnerService.hide();
       })
     } else {
       this._MoviesService.trendMovies('person').subscribe((response) => {
         this.similarMovies = response.results;
+        this._ngxSpinnerService.hide();
       })
     }
-    this._ngxSpinnerService.hide();
+  }
+  pagePostion() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   }
 
 }
